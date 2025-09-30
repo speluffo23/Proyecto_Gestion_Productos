@@ -1,11 +1,10 @@
-# validacion_cliente.py - Jornada 4 Actualización
+# validacion_cliente.py - Solución Final TechLab
 
 print("--- REGISTRO, FORMATO Y CLASIFICACIÓN DE CLIENTES ---")
 
 # =======================================================
 # 1. SOLICITAR DATOS
 # =======================================================
-# Solicitud de datos, asegurando que se eliminen espacios iniciales/finales
 nombre = input("1. Ingrese el nombre: ").strip()
 apellido = input("2. Ingrese el apellido: ").strip()
 email = input("3. Ingrese el correo electrónico: ").strip()
@@ -15,45 +14,44 @@ edad_str = input("4. Ingrese la edad (debe ser un número): ").strip()
 # 2. PROCESO DE VALIDACIÓN Y FORMATO
 # =======================================================
 
-# 2.1. FORMATO REQUERIDO (Se aplica antes de la validación para limpieza)
-# Convierte la primera letra de cada palabra a mayúscula, el resto a minúscula.
+# 2.1. FORMATO REQUERIDO
 nombre_formateado = nombre.title()
 apellido_formateado = apellido.title()
 
-# 2.2. Validación de Edad (Número y Mayor a 18)
+# 2.2. Validación de Edad (Número y Mayor a CERO)
 try:
     edad = int(edad_str)
-    es_mayor_de_edad = (edad >= 18)
+    # ÚNICA VALIDACIÓN DE EDAD: Que sea un número válido y positivo
+    es_edad_positiva = (edad >= 1) 
+    
 except ValueError:
     edad = 0 
-    es_mayor_de_edad = False
+    es_edad_positiva = False
 
 # 2.3. Validación de Campos de Texto (No en blanco)
 es_nombre_valido = bool(nombre) 
 es_apellido_valido = bool(apellido)
 
-# 2.4. VALIDACIÓN DE EMAIL (Requisitos nuevos)
-# a) Asegurar que NO tenga espacios internos
+# 2.4. VALIDACIÓN DE EMAIL
 email_sin_espacios = email.replace(" ", "")
 es_email_sin_espacios = (email == email_sin_espacios)
-
-# b) Asegurar que contenga SOLO UNA "@"
 es_una_arroba = (email.count('@') == 1)
 
-# 2.5. Validación Completa (Todos los requisitos obligatorios)
+# 2.5. Validación Completa (TODOS los campos deben ser válidos)
+# Ahora usamos 'es_edad_positiva' en lugar de 'es_mayor_de_edad'
 if (es_nombre_valido and es_apellido_valido and 
-    es_mayor_de_edad and es_email_sin_espacios and es_una_arroba):
+    es_edad_positiva and es_email_sin_espacios and es_una_arroba):
     
     # ===================================================
     # 3. CLASIFICACIÓN Y MOSTRAR DATOS (Éxito)
     # ===================================================
     
-     # NUEVO REQUISITO: CLASIFICACIÓN POR RANGO ETARIO
-    if edad <= 13:  # 13 años o menos es Niño/a
+    # CLASIFICACIÓN POR RANGO ETARIO
+    if edad <= 13: 
         rango_etario = "Niño/a"
-    elif edad < 18: # Mayor a 13 y menor a 18 (es decir, 14 a 17) es Adolescente
+    elif edad < 18: # 14 a 17 años
         rango_etario = "Adolescente"
-    else:           # 18 años o más es Adulto/a
+    else:           # 18 años o más
         rango_etario = "Adulto/a"
         
     print("\n✅ REGISTRO Y FORMATO EXITOSO.")
@@ -62,7 +60,7 @@ if (es_nombre_valido and es_apellido_valido and
     # Muestra los datos usando el formato aplicado
     print(f"NOMBRE COMPLETO: {nombre_formateado} {apellido_formateado}")
     print(f"EDAD:            {edad}")
-    print(f"RANGO ETARIO:    {rango_etario}") # Nuevo dato
+    print(f"RANGO ETARIO:    {rango_etario}")
     print(f"EMAIL:           {email}")
     print("-" * 45)
 
@@ -71,4 +69,4 @@ else:
     # 4. MOSTRAR ERROR (Fallo)
     # ===================================================
     print("\nERROR!")
-    print("Por favor, revise los requisitos (campos vacíos, edad >= 18, formato de email).")
+    print("Por favor, revise los requisitos (campos vacíos, edad válida, formato de email).")
