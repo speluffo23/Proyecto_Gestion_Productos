@@ -48,12 +48,12 @@ if (es_nombre_valido and es_apellido_valido and
     # 3. CLASIFICACIÓN Y MOSTRAR DATOS (Éxito)
     # ===================================================
     
-    # NUEVO REQUISITO: CLASIFICACIÓN POR RANGO ETARIO
-    if edad < 13:
+     # NUEVO REQUISITO: CLASIFICACIÓN POR RANGO ETARIO
+    if edad <= 13:  # 13 años o menos es Niño/a
         rango_etario = "Niño/a"
-    elif edad < 18:
+    elif edad < 18: # Mayor a 13 y menor a 18 (es decir, 14 a 17) es Adolescente
         rango_etario = "Adolescente"
-    else:
+    else:           # 18 años o más es Adulto/a
         rango_etario = "Adulto/a"
         
     print("\n✅ REGISTRO Y FORMATO EXITOSO.")
