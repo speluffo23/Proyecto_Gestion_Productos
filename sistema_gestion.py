@@ -1,12 +1,8 @@
 # sistema_gestion.py
 
-# 1. Importa todas las funciones del módulo de gestión de productos
 import gestion_productos
 
-def sistema_gestion_productos():
-    # Inicializa la lista de productos (debe estar en el módulo de gestión)
-    # Si la lista estuviera aquí, tendrías que pasarla como argumento a todas las funciones.
-    
+
     while True:
         print("\n" + "=" * 50)
         print("  SISTEMA DE GESTIÓN BÁSICA DE PRODUCTOS")
@@ -21,7 +17,6 @@ def sistema_gestion_productos():
         opcion = input("Seleccione una opción (1-5): ").strip()
 
         if opcion == '1':
-            # Llama a la función del módulo importado
             gestion_productos.agregar_producto()
         elif opcion == '2':
             gestion_productos.visualizar_productos()

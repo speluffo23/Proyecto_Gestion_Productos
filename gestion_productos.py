@@ -1,19 +1,14 @@
 # gestion_productos.py
 
-# Lista global para almacenar todos los productos
 productos = []
 
-# 1. Importa las funciones de validación para poder usarlas
 import validaciones 
 
-# =================================================================
-#                       FUNCIONES CRUD
-# =================================================================
+
 
 def agregar_producto():
     print("\n--- AGREGAR NUEVO PRODUCTO ---")
-    
-    # Llama a las funciones importadas
+
     nombre = validaciones.validar_entrada_no_vacia("Ingrese el nombre del producto: ")
     categoria = validaciones.validar_entrada_no_vacia("Ingrese la categoría del producto: ")
     precio = validaciones.validar_precio_entero("Ingrese el precio del producto (sin centavos): ")
