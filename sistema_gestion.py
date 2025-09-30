@@ -2,7 +2,10 @@
 
 import gestion_productos
 
-
+def sistema_gestion_productos():
+    """
+    Función principal que ejecuta el menú interactivo para la gestión de productos.
+    """
     while True:
         print("\n" + "=" * 50)
         print("  SISTEMA DE GESTIÓN BÁSICA DE PRODUCTOS")
