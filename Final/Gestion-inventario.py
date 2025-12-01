@@ -13,7 +13,7 @@ UMBRAL_BAJO_STOCK = 10 # Se considera 'bajo stock' si la cantidad es menor o igu
 
 def registrar_producto():
     """Opción 1: Solicita los datos del producto y lo agrega al inventario."""
-    # 🔥 CORRECCIÓN CLAVE: global al inicio, antes de cualquier uso/modificación
+    #  CORRECCIÓN CLAVE: global al inicio, antes de cualquier uso/modificación
     global PRODUCTO_ID, inventario 
     print("\n--- 1. REGISTRAR PRODUCTO ---")
     
@@ -48,7 +48,7 @@ def registrar_producto():
     
     inventario.append(nuevo_producto)
     PRODUCTO_ID += 1
-    print(f"\n✅ Producto '{nombre}' registrado con ID: {nuevo_producto['id']}.")
+    print(f"\ Producto '{nombre}' registrado con ID: {nuevo_producto['id']}.")
 
 def mostrar_todos():
     """Opción 2: Muestra una lista de todos los productos en el inventario."""
@@ -115,14 +115,14 @@ def actualizar_producto():
             except ValueError:
                 print("Entrada no válida. Por favor, ingrese un número entero.")
 
-        print(f"\n✅ Producto con ID {id_a_buscar} actualizado.")
+        print(f"\n Producto con ID {id_a_buscar} actualizado.")
     else:
-        print(f"\n❌ Producto con ID {id_a_buscar} no encontrado.")
+        print(f"\n Producto con ID {id_a_buscar} no encontrado.")
 
 def eliminar_producto():
     """Opción 4: Elimina un producto del inventario por su ID."""
     
-    # 🔥 SOLUCIÓN: DEBE SER LA PRIMERA LÍNEA EJECUTABLE (o después del docstring)
+    #  SOLUCIÓN: DEBE SER LA PRIMERA LÍNEA EJECUTABLE (o después del docstring)
     global inventario 
     
     print("\n--- 4. ELIMINAR PRODUCTO ---")
@@ -144,9 +144,9 @@ def eliminar_producto():
     inventario_despues = len(inventario)
 
     if inventario_antes > inventario_despues:
-        print(f"\n✅ Producto con ID {id_a_eliminar} eliminado.")
+        print(f"\n Producto con ID {id_a_eliminar} eliminado.")
     else:
-        print(f"\n❌ Producto con ID {id_a_eliminar} no encontrado.")
+        print(f"\n Producto con ID {id_a_eliminar} no encontrado.")
 
 def buscar_producto():
     """Opción 5: Busca productos por nombre (coincidencia parcial) o ID."""
@@ -177,7 +177,7 @@ def buscar_producto():
             ))
         print("-" * 50)
     else:
-        print(f"\n❌ No se encontraron productos con el término '{termino_busqueda}'.")
+        print(f"\n No se encontraron productos con el término '{termino_busqueda}'.")
 
 def reporte_bajo_stock():
     """Opción 6: Muestra todos los productos cuya cantidad es <= UMBRAL_BAJO_STOCK."""
@@ -189,7 +189,7 @@ def reporte_bajo_stock():
     productos_bajos = [p for p in inventario if p['cantidad'] <= UMBRAL_BAJO_STOCK]
 
     if productos_bajos:
-        print(f"🚨 ¡ATENCIÓN! Productos con stock menor o igual a {UMBRAL_BAJO_STOCK}:")
+        print(f" ¡ATENCIÓN! Productos con stock menor o igual a {UMBRAL_BAJO_STOCK}:")
         print("{:<5} | {:<20} | {:<10} | {:<10}".format("ID", "NOMBRE", "PRECIO", "CANTIDAD"))
         print("-" * 50)
         for prod in productos_bajos:
@@ -198,7 +198,7 @@ def reporte_bajo_stock():
             ))
         print("-" * 50)
     else:
-        print("✅ No hay productos con stock bajo. ¡Inventario saludable!")
+        print(" No hay productos con stock bajo. ¡Inventario saludable!")
 
 # -----------------------------------------------
 # FUNCIÓN PRINCIPAL (MAIN LOOP)
@@ -234,10 +234,10 @@ def main():
         elif opcion == '6':
             reporte_bajo_stock()
         elif opcion == '7':
-            print("\n👋 Gracias por usar el sistema. ¡Adiós!")
+            print("\n Gracias por usar el sistema. ¡Adiós!")
             break
         else:
-            print("\n❌ Opción no válida. Por favor, ingrese un número del 1 al 7.")
+            print("\n Opción no válida. Por favor, ingrese un número del 1 al 7.")
             
 if __name__ == "__main__":
     main()
